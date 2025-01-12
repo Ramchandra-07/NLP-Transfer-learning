@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendation System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Job Search</h1>
+                <form action="{{ url_for('search_jobs') }}" method="GET" class="form-inline mt-3">
+                    <input type="text" name="query" class="form-control mr-sm-2" placeholder="Search for Job Titles ...">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h1>Upload Your Resume</h1>
+                <p class="lead">Get personalized job recommendations based on your resume.</p>
+                <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="resume">Choose your resume file:</label>
+                        <input type="file" name="file" id="resume" class="form-control-file">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

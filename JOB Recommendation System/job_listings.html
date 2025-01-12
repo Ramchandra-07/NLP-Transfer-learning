@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Job Listings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div><form action="{{ url_for('search_jobs') }}" method="GET">
+            <input type="text" name="query" placeholder="Search for jobs...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="container">
+        <div><div>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Go Back to Home</a>
+        </div>
+    </div>
+        <h1 class="mt-5">Recommended Job Listings</h1>
+        {% for job in job_listings %}
+        <div class="job-listing">
+            <h2 class="job-title">{{ job['Job_Title'] }}</h2>
+            <p class="matching-percentage"><strong>Matching Percentage:</strong> {{ job['Matching_Percentage'] }}%</p>
+            <div class="job-detail">
+                <strong>Job Title:</strong> {{ job['Job Title'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Role:</strong> {{ job['Role'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Job Description:</strong>
+                <p>{{ job['Job Description'] }}</p>
+            </div>
+            <div class="job-detail">
+                <strong>Experience:</strong> {{ job['Experience'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Qualifications:</strong> {{ job['Qualifications'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Salary Range:</strong> {{ job['Salary Range'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Location:</strong> {{ job['location'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Country:</strong> {{ job['Country'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Work Type:</strong> {{ job['Work Type'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Company Size:</strong> {{ job['Company Size'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Preference:</strong> {{ job['Preference'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Contact Person:</strong> {{ job['Contact Person'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Contact:</strong> {{ job['Contact'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Job Portal:</strong> {{ job['Job Portal'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Benefits:</strong> {{ job['Benefits'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Skills:</strong> {{ job['skills'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Responsibilities:</strong> {{ job['Responsibilities'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Company Name:</strong> {{ job['Company'] }}
+            </div>
+            <div class="job-detail">
+                <strong>Company Profile:</strong> {{ job['Company Profile'] }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
